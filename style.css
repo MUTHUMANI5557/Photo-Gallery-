@@ -1,0 +1,61 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Tablet view */
+@media (min-width: 772px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  figure {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .gallery figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 992px) {
+  .gallery figure {
+    border-radius: 0;
+  }
+
+  .gallery figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  figure {
+    background-color: #222;
+    color: #ffea00;
+    border-color: #000;
+  }
+}
